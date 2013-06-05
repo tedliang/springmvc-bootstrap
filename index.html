@@ -1,67 +1,88 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Springmvc-twitterbootstrap-showcase : Demonstrates the features of the Spring web framework (3.2.x) with Twitter Bootstrap (2.x)" />
 
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Springmvc-twitterbootstrap-showcase by priyatam</title>
+    <title>Springmvc-twitterbootstrap-showcase</title>
   </head>
 
   <body>
 
-    <header>
-      <div class="container">
-        <h1>Springmvc-twitterbootstrap-showcase</h1>
-        <h2>Demonstrates the features of the Spring web framework (3.2.x) with Twitter Bootstrap (2.x)</h2>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/priyatam/springmvc-twitterbootstrap-showcase">View on GitHub</a>
 
-        <section id="downloads">
-          <a href="https://github.com/priyatam/springmvc-twitterbootstrap-showcase/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/priyatam/springmvc-twitterbootstrap-showcase/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/priyatam/springmvc-twitterbootstrap-showcase" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
-      </div>
-    </header>
+          <h1 id="project_title">Springmvc-twitterbootstrap-showcase</h1>
+          <h2 id="project_tagline">Demonstrates the features of the Spring web framework (3.2.x) with Twitter Bootstrap (2.x)</h2>
 
-    <div class="container">
-      <section id="main_content">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/priyatam/springmvc-twitterbootstrap-showcase/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/priyatam/springmvc-twitterbootstrap-showcase/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="springmvc-twitter-bootstrap-showcase" class="anchor" href="#springmvc-twitter-bootstrap-showcase"><span class="octicon octicon-link"></span></a>SpringMVC Twitter Bootstrap Showcase</h1>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<h2>
+<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h2>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>This fork replaces <a href="https://github.com/SpringSource/spring-mvc-showcase">Spring MVC Showcase's</a> JQuery-UI with <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, tomcat with embedded jetty, tiles with <a href="http://www.sitemesh.org/">Sitemesh</a>, and other cleanup tasks (commmon js file).</p>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<p>For a complex use of SpringMVC/JQuery/Bootstrap/Ajax, see <a href="https://github.com/priyatam/spring-best-practices">Spring MVC/REST Best Practices</a></p>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<h2>
+<a name="major-versions-used" class="anchor" href="#major-versions-used"><span class="octicon octicon-link"></span></a>Major Versions used</h2>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<blockquote>
+<p>Spring 3.2<br>
+Twitter Bootstrap 2.3</p>
+</blockquote>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<h2>
+<a name="live-demo" class="anchor" href="#live-demo"><span class="octicon octicon-link"></span></a>Live Demo</h2>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<p><a href="http://springmvc-twbootstrap-showcase.cloudfoundry.com">http://springmvc-twbootstrap-showcase.cloudfoundry.com</a></p>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<h2>
+<a name="run-locally-with-maven" class="anchor" href="#run-locally-with-maven"><span class="octicon octicon-link"></span></a>Run locally with Maven</h2>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<ol>
+<li>Build 
+&gt; $ mvn clean install</li>
+<li>Run
+&gt; $ mvn jetty:run</li>
+<li>Access the deployed web application at: http://localhost:8080/spring-mvc-showcase/</li>
+</ol><h2>
+<a name="tutorials" class="anchor" href="#tutorials"><span class="octicon octicon-link"></span></a>Tutorials</h2>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<ul>
+<li><a href="http://blog.springsource.com/2010/07/22/spring-mvc-3-showcase/">The original blog</a></li>
+<li>A <a href="http://s3.springsource.org/MVC/mvc-showcase-screencast.mov">screencast</a> showing the showcase in action</li>
+<li>The presentation is located in this directory (MasteringSpringMVC3.pdf)</li>
+</ul>
       </section>
     </div>
 
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Springmvc-twitterbootstrap-showcase maintained by <a href="https://github.com/priyatam">priyatam</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
     
+
   </body>
 </html>
