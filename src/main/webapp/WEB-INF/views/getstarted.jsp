@@ -190,7 +190,7 @@
           </li>
         </ul>
       </div>
-           
+
       <div class="tab-pane" id="redirect">
         <h2>Redirecting</h2>
         <p>
@@ -206,14 +206,14 @@
         </ul>
       </div>    
     </div> <!--tab-content-->
-  </div> <!--tabbable-->   
+  </div> <!--tabbable-->
 
-  <script type="text/javascript">
+  <javascript>
     // Load initial tab
     $(function () {
       $('#getStartedTab a[href="#simple"]').tab('show');
     })
-  </script>
+  </javascript>
 
 </body>
 </html>

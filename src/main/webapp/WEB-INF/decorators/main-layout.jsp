@@ -1,5 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +49,7 @@
 
                         <hr class="soften">
 
-                        <decorator:body />
+                        <sitemesh:write property='body'/>
 
                       </div>
                     </div><!--/col-->
@@ -67,6 +66,7 @@
 	<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<c:url value="/resources/js/demo.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/json2.js" />"></script>
-  <script type="text/javascript" src="<c:url value="/resources/js/date.format.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/js/date.format.js" />"></script>
+    <sitemesh:write property='javascript'/>
 </body>
 </html>

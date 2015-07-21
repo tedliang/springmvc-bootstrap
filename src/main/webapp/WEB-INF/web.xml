@@ -33,7 +33,7 @@
 	<!--Sitemesh: Decorates pages with layouts -->
 	<filter>
 	  <filter-name>sitemesh</filter-name>
-	  <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
+	  <filter-class>org.sitemesh.config.ConfigurableSiteMeshFilter</filter-class>
 	</filter>
 	 
 	<filter-mapping>
