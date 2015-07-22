@@ -15,8 +15,7 @@ public class JavaScriptTagRuleBundle implements TagRuleBundle {
     private static final String TAG = "javascript";
 
     @Override
-    public void install(State defaultState, ContentProperty contentProperty,
-                        SiteMeshContext siteMeshContext) {
+    public void install(State defaultState, ContentProperty contentProperty, SiteMeshContext siteMeshContext) {
         defaultState.addRule(TAG, new JavaScriptTagsToContentRule(siteMeshContext, contentProperty.getChild(TAG), false));
     }
 
@@ -25,12 +24,16 @@ public class JavaScriptTagRuleBundle implements TagRuleBundle {
 
     private class JavaScriptTagsToContentRule extends ExportTagToContentRule {
 
+        private boolean hasContent = false;
+
         private final CharSequenceList contents = new CharSequenceList() {
             @Override
             public void writeTo(Appendable out) throws IOException {
-                out.append("<script type=\"text/javascript\">");
-                super.writeTo(out);
-                out.append("</script>");
+                if (hasContent) {
+                    out.append("<script type=\"text/javascript\">");
+                    super.writeTo(out);
+                    out.append("</script>");
+                }
             }
         };
 
@@ -42,6 +45,7 @@ public class JavaScriptTagRuleBundle implements TagRuleBundle {
         @Override
         protected void processEnd(Tag tag, Object data) throws IOException {
             contents.append(tagProcessorContext.currentBufferContents());
+            hasContent = true;
             super.processEnd(tag, data);
         }
 
