@@ -19,6 +19,7 @@ public enum RenderType {
             opt.setEnableAgentStyleEngine(true);
 
             opt.setEmbeddable(true);
+            opt.setSupportedImageFormats("JPG");
             opt.setImageHandler(new HTMLServerImageHandler() {
                 @Override
                 protected String handleImage(IImage image, Object context, String prefix, boolean needMap) {

@@ -109,7 +109,7 @@ Order By 	CLASSICMODELS.PRODUCTS.PRODUCTLINE,
                         <property name="borderTopColor">#808080</property>
                         <property name="borderTopStyle">solid</property>
                         <property name="borderTopWidth">thin</property>
-                        <property name="imageName">C:\Documents and Settings\pclenahan\My Documents\ClassicModels\logos\Classic-Models-Full-M.jpg</property>
+                        <property name="imageName">Classic-Models-Full-M.jpg</property>
                     </image>
                 </cell>
                 <cell id="15">
