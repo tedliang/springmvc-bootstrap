@@ -15,7 +15,7 @@ public class BirtReportController {
     private BirtReportView birtReportView;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView testRequest(@RequestParam RenderType renderType) {
+    public ModelAndView run(@RequestParam RenderType renderType) {
         return birtReportView.loadTemplate(renderType,
                 "/WEB-INF/reports/ProductCatalog.rptdesign");
     }
