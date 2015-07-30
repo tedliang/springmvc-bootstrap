@@ -13,7 +13,8 @@
 	<mvc:view-controller path="/" view-name="home"/>
 	<mvc:view-controller path="/getstarted" view-name="getstarted"/>
 	<mvc:view-controller path="/errors-validations" view-name="errors-validations"/>	  
-	<mvc:view-controller path="/misc" view-name="misc"/>	  
+	<mvc:view-controller path="/report" view-name="report"/>
+	<mvc:view-controller path="/misc" view-name="misc"/>
 	<mvc:view-controller path="/faq" view-name="faq"/>
 
 </beans>

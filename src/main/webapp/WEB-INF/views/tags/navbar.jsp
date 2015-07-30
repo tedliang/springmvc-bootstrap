@@ -16,6 +16,7 @@
             <li><a href="<c:url value="/errors-validations" />">Errors &amp; Validations</a></li>
             <li><a href="<c:url value="/form" />">Forms</a></li>
             <li><a href="<c:url value="/fileupload" />">File Upload</a></li>
+            <li><a href="<c:url value="/report" />">Report</a></li>
             <li><a href="<c:url value="/misc" />">Misc</a></li>
           </ul>
         </div>   			      		 
