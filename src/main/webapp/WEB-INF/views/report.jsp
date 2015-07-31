@@ -9,6 +9,7 @@
     <!-- Tab Definitions-->               
     <ul class="nav nav-tabs">
       <li class="active"><a href="#birtreport" data-toggle="tab">Birt Report</a></li>
+      <li><a href="<c:url value="/birtreport/parameterDefs" />">Parameter Defs</a></li>
     </ul>
 
     <!-- Tab Content-->
@@ -20,12 +21,15 @@
         </p>
         <ul>
           <li>
-            <a id="birthtml" href="<c:url value="/birtreport?renderType=HTML" />">HTML</a>
+            <a href="<c:url value="/birtreport.html" />">HTML</a>
           </li>
           <li>
-            <a id="birtpdf" href="<c:url value="/birtreport?renderType=PDF" />">PDF</a>
+            <a href="<c:url value="/birtreport.pdf" />">PDF</a>
           </li>
-        </ul> 
+          <li>
+            <a href="<c:url value="/birtreport.xlsx" />">EXCEL</a>
+          </li>
+        </ul>
       </div>
     </div> <!--tab-content-->
   </div> <!--tabbable-->   

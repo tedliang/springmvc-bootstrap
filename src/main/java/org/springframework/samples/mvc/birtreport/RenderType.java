@@ -7,12 +7,12 @@ import sun.misc.BASE64Encoder;
 import java.io.OutputStream;
 
 public enum RenderType {
-    HTML (MediaType.TEXT_HTML_VALUE) {
+    HTML ("html", MediaType.TEXT_HTML_VALUE) {
         @Override
         public RenderOption buildRenderOption(OutputStream ostream) {
             HTMLRenderOption opt = new HTMLRenderOption();
 
-            opt.setOutputFormat(IRenderOption.OUTPUT_FORMAT_HTML);
+            opt.setOutputFormat(this.getOutputFormat());
             opt.setOutputStream(ostream);
             opt.setBaseImageURL(null);
             opt.setImageDirectory(null);
@@ -31,35 +31,51 @@ public enum RenderType {
         }
     },
 
-    PDF ("application/pdf") {
+    PDF ("pdf", "application/pdf") {
         @Override
         public RenderOption buildRenderOption(OutputStream ostream) {
             RenderOption opt = new PDFRenderOption();
-            opt.setOutputFormat(IRenderOption.OUTPUT_FORMAT_PDF);
+            opt.setOutputFormat(this.getOutputFormat());
             opt.setOutputStream(ostream);
             return opt;
         }
     },
 
-    EXCEL ("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+    EXCEL ("xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
         @Override
         public RenderOption buildRenderOption(OutputStream ostream) {
             EXCELRenderOption opt = new EXCELRenderOption();
-            opt.setOutputFormat("xlsx");
+            opt.setOutputFormat(this.getOutputFormat());
             opt.setOutputStream(ostream);
             return opt;
         }
     };
 
+    private final String outputFormat;
+
     private final String contentType;
 
-    RenderType(String contentType) {
+    RenderType(String outputFormat, String contentType) {
+        this.outputFormat = outputFormat;
         this.contentType = contentType;
     }
 
     public abstract RenderOption buildRenderOption(OutputStream ostream);
 
+    public static RenderType resolveByOutputFormat(String extension) {
+        for (RenderType renderType : values()) {
+            if (renderType.outputFormat.equalsIgnoreCase(extension)) {
+                return renderType;
+            }
+        }
+        return null;
+    }
+
     public String getContentType() {
         return contentType;
+    }
+
+    public String getOutputFormat() {
+        return outputFormat;
     }
 }
