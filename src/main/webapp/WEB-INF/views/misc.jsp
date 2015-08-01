@@ -8,13 +8,13 @@
   <div class="tabbable" id="demo-tab"> <!-- Only required for left/right tabs -->
     <!-- Tab Definitions-->               
     <ul class="nav nav-tabs">
-      <li><a href="#messageconverters" data-toggle="tab">Message Converters</a></li>
+      <li class="active"><a href="#messageconverters" data-toggle="tab">Message Converters</a></li>
       <li><a href="#convert" data-toggle="tab">Type Conversion</a></li>
     </ul>  
 
     <!-- Tab Content-->
     <div class="tab-content">                  
-    	<div class="tab-pane" id="messageconverters">
+    	<div class="tab-pane active" id="messageconverters">
         <h2>Http Message Converters</h2>
         <p>
           See the <code>org.springframework.samples.mvc.messageconverters</code> package for the @Controller code

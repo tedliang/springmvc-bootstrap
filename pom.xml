@@ -11,7 +11,6 @@
         <java-version>1.7</java-version>
         <org.springframework-version>4.1.0.RELEASE</org.springframework-version>
         <org.springframework.security-version>3.2.0.RELEASE</org.springframework.security-version>
-        <birt-version>4.4.2</birt-version>
         <org.aspectj-version>1.8.1</org.aspectj-version>
         <org.slf4j-version>1.6.1</org.slf4j-version>
     </properties>
@@ -161,11 +160,23 @@
             <version>2.0.1</version>
         </dependency>
 
-        <!-- Birt -->
+        <!-- BirtReport -->
         <dependency>
             <groupId>org.eclipse.birt.runtime</groupId>
             <artifactId>org.eclipse.birt.runtime</artifactId>
-            <version>${birt-version}</version>
+            <version>4.4.2</version>
+        </dependency>
+
+        <!-- JodReport -->
+        <dependency>
+            <groupId>net.sf.jodreports</groupId>
+            <artifactId>jodreports</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.livesense</groupId>
+            <artifactId>jodconverter-core</artifactId>
+            <version>1.0.5</version>
         </dependency>
 
         <!-- Security (used for CSRF protection only) -->

@@ -18,7 +18,7 @@
 
     <!-- Tab Content-->
     <div class="tab-content">                  
-      <div class="tab-pane" id="simple">
+      <div class="tab-pane active" id="simple">
         <h2>Simple</h2>
         <p>
           See the <code>org.springframework.samples.mvc.simple</code> package for the @Controller code

@@ -14,7 +14,7 @@
 
     <!-- Tab Content-->
     <div class="tab-content">                  
-      <div class="tab-pane" id="validation">
+      <div class="tab-pane active" id="validation">
         <h2>Validation</h2>
         <p>
           See the <code>org.springframework.samples.mvc.validation</code> package for the @Controller code  

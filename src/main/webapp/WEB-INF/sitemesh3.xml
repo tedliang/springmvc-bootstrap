@@ -3,6 +3,7 @@
 <sitemesh>
 	<!-- Any urls that are excluded will never be decorated by Sitemesh -->
     <mapping path="/about.jsp" exclue="true"/>
+    <mapping path="/birtreport/*" exclue="true"/>
 
     <mapping path="/*" decorator="/WEB-INF/decorators/main-layout.jsp"/>
 

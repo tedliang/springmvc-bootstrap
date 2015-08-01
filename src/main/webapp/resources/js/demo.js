@@ -5,15 +5,15 @@ MvcUtil.showSuccessResponse = function (text, element) {
 	MvcUtil.showResponse("success", text, element);
 };
 MvcUtil.showErrorResponse = function showErrorResponse(text, element) {
-	MvcUtil.showResponse("error", text, element);
+	MvcUtil.showResponse("danger", text, element);
 };
 MvcUtil.showResponse = function(type, text, element) {
 	var responseElementId = element.attr("id") + "Response";
 	var responseElement = $("#" + responseElementId);
 	if (responseElement.length == 0) {
-		responseElement = $('<span id="' + responseElementId + '" class="' + type + '" style="display:none">' + text + '</span>').insertAfter(element);
+		responseElement = $('<div id="' + responseElementId + '" class="alert alert-' + type + '" style="display:none">' + text + '</div>').insertAfter(element);
 	} else {
-		responseElement.replaceWith('<span id="' + responseElementId + '" class="' + type + '" style="display:none">' + text + '</span>');
+		responseElement.replaceWith('<div id="' + responseElementId + '" class="alert alert-' + type + '" style="display:none">' + text + '</div>');
 		responseElement = $("#" + responseElementId);
 	}
 	responseElement.fadeIn("slow");
