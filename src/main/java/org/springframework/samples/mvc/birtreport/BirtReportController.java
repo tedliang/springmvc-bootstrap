@@ -25,7 +25,7 @@ public class BirtReportController {
 
     @RequestMapping(value = "/parameterDefs", method = RequestMethod.GET)
     public String parameterDefs(ModelMap modelMap) throws IOException, EngineException {
-        Collection<IParameterDefn> paramDefs = birtReportView.getParameterDefs("/WEB-INF/reports/ProductCatalog.rptdesign");
+        Collection<IParameterDefn> paramDefs = birtReportView.getParameterDefs("/WEB-INF/reports/cascade.rptdesign");
         modelMap.put("paramDefs", paramDefs);
         return "birtreport-parameter-defs";
     }

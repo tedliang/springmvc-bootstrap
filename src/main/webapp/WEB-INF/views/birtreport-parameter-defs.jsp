@@ -27,7 +27,8 @@
               <th>Type</th>
               <th>Help Text</th>
               <th>Prompt Text</th>
-              <th>ControlType</th>
+              <th>Data Type</th>
+              <th>Control Type</th>
             </tr>
           </thead>
           <tbody>
@@ -39,6 +40,7 @@
                   <td>${def.scalarParameterType}</td>
                   <td>${def.helpText}</td>
                   <td>${def.promptText}</td>
+                  <td>${def.dataType}</td>
                   <td>${def.controlType}</td>
                 </tr>
               </c:if>
