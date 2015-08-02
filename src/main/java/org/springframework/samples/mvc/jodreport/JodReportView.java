@@ -1,8 +1,8 @@
 package org.springframework.samples.mvc.jodreport;
 
 import net.sf.jooreports.templates.DocumentTemplate;
+import net.sf.jooreports.templates.DocumentTemplateException;
 import net.sf.jooreports.templates.DocumentTemplateFactory;
-import org.apache.commons.io.IOUtils;
 import org.artofsolving.jodconverter.OfficeDocumentConverter;
 import org.artofsolving.jodconverter.document.DefaultDocumentFormatRegistry;
 import org.artofsolving.jodconverter.document.DocumentFormat;
@@ -20,6 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Map;
 
 @Named
@@ -48,42 +50,45 @@ public class JodReportView extends AbstractView implements ApplicationContextAwa
                                            HttpServletRequest request,
                                            HttpServletResponse response) throws Exception {
 
-        try (InputStream inputStream = (InputStream) model.remove(TEMPLATE_KEY)) {
-            DocumentTemplate template = documentTemplateFactory.getTemplate(inputStream);
+        String extension = StringUtils.getFilenameExtension(request.getRequestURI());
+        if (StringUtils.isEmpty(extension)) {
+            extension = ODT;
+        }
 
+        DocumentFormat outputFormat = formatRegistry.getFormatByExtension(extension);
+        response.setContentType(outputFormat.getMediaType());
+        response.setCharacterEncoding(StandardCharsets.UTF_8.name());
 
-            String extension = StringUtils.getFilenameExtension(request.getRequestURI());
-            if (StringUtils.isEmpty(extension)) {
-                extension = ODT;
-            }
+        if (extension.equalsIgnoreCase(ODT)) {
+            createDocument(model, response.getOutputStream());
+        }
+        else {
+            Path odtPath = createTempFilePath(ODT);
+            Path targetPath = createTempFilePath(extension);
 
-            DocumentFormat outputFormat = formatRegistry.getFormatByExtension(extension);
-            response.setContentType(outputFormat.getMediaType());
-            response.setCharacterEncoding(StandardCharsets.UTF_8.name());
-
-            if (extension.equalsIgnoreCase(ODT)) {
-                template.createDocument(model, response.getOutputStream());
-            }
-            else {
-                File srcFile = createTempFile(ODT);
-                File targetFile = createTempFile(extension);
-
-                template.createDocument(model, new FileOutputStream(srcFile));
-
+            try (OutputStream outputStream = Files.newOutputStream(odtPath)) {
+                createDocument(model, outputStream);
                 OfficeDocumentConverter converter = new OfficeDocumentConverter(getOfficeManager());
-                converter.convert(srcFile, targetFile, outputFormat);
-
-                try (FileInputStream input = new FileInputStream(targetFile)) {
-                    IOUtils.copy(input, response.getOutputStream());
-                }
+                converter.convert(odtPath.toFile(), targetPath.toFile(), outputFormat);
+                Files.copy(targetPath, response.getOutputStream());
+            }
+            finally {
+                Files.delete(odtPath);
+                Files.delete(targetPath);
             }
         }
     }
 
-    private File createTempFile(String extension) throws IOException {
-        File tempFile = File.createTempFile("document", "." + extension);
-        tempFile.deleteOnExit();
-        return tempFile;
+    private void createDocument(Map<String, Object> model, OutputStream outputStream)
+            throws IOException, DocumentTemplateException {
+        try (InputStream inputStream = (InputStream) model.remove(TEMPLATE_KEY)) {
+            DocumentTemplate template = documentTemplateFactory.getTemplate(inputStream);
+            template.createDocument(model, outputStream);
+        }
+    }
+
+    private Path createTempFilePath(String extension) throws IOException {
+        return Files.createTempFile("document", "." + extension);
     }
 
     private OfficeManager getOfficeManager() {
