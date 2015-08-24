@@ -40,7 +40,9 @@ public class JawrController implements ServletContextAware, InitializingBean, Se
         cssHandler.processRequest(getPath(request), request, response);
     }
 
-    @RequestMapping("/**/*.{png|gif|jpeg|jpg|woff|eot|ttf}")
+    @RequestMapping(value = {
+            "/**/*.png", "/**/*.gif", "/**/*.jpeg", "/**/*.jpg",
+            "/**/*.woff", "/**/*.woff2", "/**/*.eot", "/**/*.ttf" })
     public void handleBinary(HttpServletRequest request, HttpServletResponse response) throws Exception {
         binaryHandler.processRequest(getPath(request), request, response);
     }
@@ -52,8 +54,8 @@ public class JawrController implements ServletContextAware, InitializingBean, Se
     @Override
     public void afterPropertiesSet() throws Exception {
         jsHandler = new JawrRequestHandler(context, getInitParams("js"), null);
-        cssHandler = new JawrRequestHandler(context, getInitParams("css"), null);
         binaryHandler = new JawrBinaryResourceRequestHandler(context, getInitParams("binary"), null);
+        cssHandler = new JawrRequestHandler(context, getInitParams("css"), null);
     }
 
     private Map<String, Object> getInitParams(String type) {
