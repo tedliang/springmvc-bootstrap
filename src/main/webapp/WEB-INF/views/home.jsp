@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
@@ -14,6 +15,11 @@
 
       <div class="col-md-10">
           <div class="jumbotron">
+              English: Hello<br>
+              Chinese: 你好<br>
+              Japanese: 今日は<br>
+              Korean: 안녕하십니까<br>
+              Russian: Здравствуйте!<br>
               <c:import url="/WEB-INF/views/tags/banner.jsp"/>
           </div>
 
