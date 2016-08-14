@@ -36,5 +36,7 @@
 
 	<!-- Imports user-defined @Controller beans that process client requests -->
 	<beans:import resource="controllers.xml" />
+
+	<beans:bean class="org.springframework.samples.config.AppWebSocketConfig"/>
 	
 </beans:beans>
